@@ -37,8 +37,11 @@ repositories {
 }
 
 dependencies {
-    api "org.bytedeco:tensorflow-platform:1.15.3-1.5.4" // or any other "-platform" artifacts
 
+    implementation 'ch.qos.logback:logback-core:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    api "org.bytedeco:tensorflow-platform:1.15.3-1.5.4" // or any other "-platform" artifacts
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'org.tensorflow:tensorflow-core-api:0.2.0'
@@ -51,6 +54,8 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.slf4j:slf4j-api:1.7.30'
+
 }
 
 application {
