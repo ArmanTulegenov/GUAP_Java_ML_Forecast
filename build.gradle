@@ -60,5 +60,5 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'ru.guap.Main'
+    mainClassName = 'ru.guap.Driver'
 }
