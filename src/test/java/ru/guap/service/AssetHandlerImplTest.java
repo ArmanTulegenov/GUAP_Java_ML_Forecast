@@ -11,6 +11,15 @@ import java.time.ZoneOffset;
 public class AssetHandlerImplTest {
 
     @Test
+    public void testGetAssets() {
+
+        AssetHandlerImpl assetHandler = new AssetHandlerImpl();
+
+        assetHandler.getAssets("BTC-USD", "1d", LocalDateTime.now().minusYears(1), LocalDateTime.now());
+
+    }
+
+    @Test
     public void testTimeZone() {
 
         var expectedTimestamp = 1572508989;
