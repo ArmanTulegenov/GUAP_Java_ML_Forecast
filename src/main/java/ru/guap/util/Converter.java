@@ -16,7 +16,7 @@ public class Converter {
     public static final String ASSET_LIST_COULD_NOT_BE_NULL = "Asset List  could not be null";
     public static final String BATCH_SIZE_COULD_NOT_BE_LESS_THAN_ONE = "Batch size could not be less than one, batchSize = {}";
 
-    public static Pair<Asset[][], Asset[]> getFeatureArray(List<Asset> assetList, int batchSize) {
+    public static Pair<Asset[][], Asset[][]> getFeatureArray(List<Asset> assetList, int batchSize) {
         if (null == assetList) {
             LOGGER.error(ASSET_LIST_COULD_NOT_BE_NULL);
             throw new GuapJavaMachineLearningInvalidParameters();
@@ -31,13 +31,15 @@ public class Converter {
         int index = 0;
 
         Asset[][] featureResult = new Asset[originalArray.length - batchSize][batchSize];
-        Asset[] labelResult = new Asset[originalArray.length - batchSize];
+        Asset[][] labelResult = new Asset[originalArray.length - batchSize][batchSize];
 
-        while (index + batchSize - 1 < originalArray.length) {
-            labelResult[index] = originalArray[index + batchSize];
+        while (index + batchSize + 1  < originalArray.length) {
             for (int i = 0; i < batchSize; i++) {
                 featureResult[index][i] = originalArray[index + i];
+                labelResult[index][i] = originalArray[index + i + 1];
+
             }
+
             index ++;
         }
         return Pair.of(featureResult, labelResult);

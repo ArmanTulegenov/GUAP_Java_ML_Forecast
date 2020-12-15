@@ -30,21 +30,21 @@ public class ConverterTest {
 
     @Test
     public void getArray() {
-        Pair<Asset[][], Asset[]> result = Converter.getFeatureArray(getAssets(), 5);
+        Pair<Asset[][], Asset[][]> result = Converter.getFeatureArray(getAssets(), 5);
 
         Asset[][] featureArray = result.getLeft();
-        Asset[] labelArray = result.getRight();
+        Asset[][] labelArray = result.getRight();
 
         for (int i = 0; i < featureArray.length; i ++) {
             for (int j = 0; j < featureArray[i].length; j ++) {
-               LOGGER.info("{}, {}, {}", i, j, featureArray[i][j]);
+               LOGGER.info("{}, {}, {}, {}", i, j, featureArray[i][j], labelArray[i][j]);
             }
             LOGGER.info("---------------");
 
         }
 
         Assert.notNull(featureArray);
-        Assert.isTrue(featureArray.length == 7);
+        Assert.isTrue(featureArray.length == 8);
     }
 
     private List<Asset> getAssets() {
