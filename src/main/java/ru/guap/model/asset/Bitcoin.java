@@ -29,34 +29,12 @@ public class Bitcoin implements Currency {
         this.volume = volume;
     }
 
-    public String getInterval() {
-        return interval;
-    }
-
+    @Override
     public LocalDateTime getDateTime() {
         return dateTime;
     }
 
-    public BigDecimal getOpenPrice() {
-        return openPrice;
-    }
-
-    public BigDecimal getHighPrice() {
-        return highPrice;
-    }
-
-    public BigDecimal getLowPrice() {
-        return lowPrice;
-    }
-
-    public BigDecimal getClosePrice() {
-        return closePrice;
-    }
-
-    public BigDecimal getAdjClose() {
-        return adjClose;
-    }
-
+    @Override
     public BigDecimal getVolume() {
         return volume;
     }
@@ -64,6 +42,34 @@ public class Bitcoin implements Currency {
     @Override
     public String getName() {
         return NAME;
+    }
+
+    @Override
+    public BigDecimal getOpenPrice() {
+        return openPrice;
+    }
+
+    @Override
+    public BigDecimal getHighPrice() {
+        return highPrice;
+    }
+
+    @Override
+    public BigDecimal getLowPrice() {
+        return lowPrice;
+    }
+
+    @Override
+    public BigDecimal getClosePrice() {
+        return closePrice;
+    }
+
+    public String getInterval() {
+        return interval;
+    }
+
+    public BigDecimal getAdjClose() {
+        return adjClose;
     }
 
     @Override
@@ -86,4 +92,8 @@ public class Bitcoin implements Currency {
         return Objects.hash(interval, dateTime, openPrice, highPrice, lowPrice, closePrice, adjClose, volume);
     }
 
+    @Override
+    public String toString() {
+        return String.format("%f, %f, %f, %f, %f", openPrice.doubleValue(), highPrice.doubleValue(), lowPrice.doubleValue(), closePrice.doubleValue(), volume.doubleValue());
+    }
 }

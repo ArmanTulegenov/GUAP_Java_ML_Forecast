@@ -1,4 +1,4 @@
-package ru.guap.service;
+package ru.guap.service.handler;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -23,9 +23,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class AssetHandlerImpl implements AssetHandler<Bitcoin> {
+public class YahooBitcoinHandlerImpl implements AssetHandler<Bitcoin> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AssetHandlerImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(YahooBitcoinHandlerImpl.class);
 
     @Override
     public Optional<List<Optional<Bitcoin>>> getAssets(String asset, String interval, LocalDateTime from, LocalDateTime to) {

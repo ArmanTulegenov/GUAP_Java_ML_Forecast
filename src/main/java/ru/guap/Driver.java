@@ -3,8 +3,8 @@ package ru.guap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.guap.model.asset.Bitcoin;
-import ru.guap.service.AssetHandler;
-import ru.guap.service.AssetHandlerImpl;
+import ru.guap.service.handler.AssetHandler;
+import ru.guap.service.handler.YahooBitcoinHandlerImpl;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,7 +25,7 @@ public class Driver {
             System.exit(-1);
         }
 
-        AssetHandler<Bitcoin> assetHandler = new AssetHandlerImpl();
+        AssetHandler<Bitcoin> assetHandler = new YahooBitcoinHandlerImpl();
 
         var assetName = args[0];
         var interval = args[1];
@@ -40,10 +40,10 @@ public class Driver {
         assetList.ifPresent(
                 listOfBitcoins ->
                         listOfBitcoins.stream().filter(Optional::isPresent).map(Optional::get).forEach(asset ->
-                                LOGGER.info("{} - {}", asset.getDateTime(), asset.getOpenPrice())
+                                LOGGER.info("{} - {}", asset.getDateTime(), asset.getClosePrice())
                         )
         );
-        LOGGER.info("{}", assetList);
+        // LOGGER.info("{}", assetList);
     }
 
     private static String getUsage() {

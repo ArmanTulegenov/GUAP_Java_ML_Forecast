@@ -43,6 +43,8 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.11'
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
+    implementation  'org.deeplearning4j:deeplearning4j-core:1.0.0-beta7'
+    implementation 'org.deeplearning4j:deeplearning4j-nn:1.0.0-beta7'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'

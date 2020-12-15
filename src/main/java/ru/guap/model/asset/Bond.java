@@ -1,8 +1,7 @@
 package ru.guap.model.asset;
 
-public class Bond  implements Asset {
+public class Bond  {
 
-    @Override
     public String getName() {
         return null;
     }

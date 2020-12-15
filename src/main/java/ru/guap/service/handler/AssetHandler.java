@@ -1,4 +1,4 @@
-package ru.guap.service;
+package ru.guap.service.handler;
 
 import ru.guap.model.asset.Asset;
 
