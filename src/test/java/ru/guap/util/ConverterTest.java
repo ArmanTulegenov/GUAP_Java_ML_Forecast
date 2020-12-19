@@ -43,8 +43,10 @@ public class ConverterTest {
 
         }
 
+        Converter.saveFiles(Pair.of(featureArray, labelArray));
+
         Assert.notNull(featureArray);
-        Assert.isTrue(featureArray.length == 8);
+        Assert.isTrue(featureArray.length == 7);
     }
 
     private List<Asset> getAssets() {

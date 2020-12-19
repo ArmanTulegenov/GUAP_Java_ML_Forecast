@@ -94,6 +94,6 @@ public class Bitcoin implements Currency {
 
     @Override
     public String toString() {
-        return String.format("%f, %f, %f, %f, %f", openPrice.doubleValue(), highPrice.doubleValue(), lowPrice.doubleValue(), closePrice.doubleValue(), volume.doubleValue());
+        return String.format("%f,%f,%f,%f,%f", openPrice.doubleValue(), highPrice.doubleValue(), lowPrice.doubleValue(), closePrice.doubleValue(), volume.doubleValue());
     }
 }
